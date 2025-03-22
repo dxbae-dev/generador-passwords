@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <!-- Meta configuración básica -->
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Meta tags SEO -->
+    <title>
+      Generador de Contraseñas Seguras y Aleatorias | Password Generator
+    </title>
+    <meta
+      name="description"
+      content="Genera contraseñas seguras y aleatorias al instante. Personaliza longitud, números y caracteres especiales. ¡Ideal para proteger tus cuentas!"
+    />
+    <meta
+      name="keywords"
+      content="generador de contraseñas, password generator, seguridad, contraseñas seguras, tool online, generar password fuerte"
+    />
+    <meta name="author" content="Daniel Baena" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph para compartir en redes sociales -->
+    <meta
+      property="og:title"
+      content="Generador de Contraseñas Seguras | Password Generator"
+    />
+    <meta
+      property="og:description"
+      content="Herramienta gratuita para crear contraseñas seguras y personalizadas."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://tusitio.com/" />
+    <meta property="og:image" content="https://tusitio.com/og-image.jpg" />
+
+    <!-- Remix Icons (íconos vectoriales) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
+    />
+
+    <!-- Hojas de estilo externas -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mediaquery.css" />
+  </head>
+
+  <body>
+    <!-- Decorativo / Diseño (puede contener imagen o color de fondo) -->
+    <aside class="left" role="presentation"></aside>
+
+    <!-- Sección principal del generador -->
+    <main class="form" role="main">
+      <!-- Botón para alternar entre modo claro y oscuro -->
+      <i
+        id="toggleTheme"
+        aria-label="Cambiar entre modo claro y oscuro"
+        class="ri-sun-line"
+      ></i>
+
+      <!-- Título principal -->
+      <h1>Generador de Contraseñas</h1>
+      <!-- Subtítulo descriptivo -->
+      <p class="sub">
+        Personaliza tu contraseña según tus necesidades y mantenla protegida 🚀.
+      </p>
+
+      <!-- Opciones de configuración -->
+      <section class="options">
+        <!-- Input para definir la longitud -->
+        <div class="option">
+          <label for="lenght">Longitud:</label>
+          <input
+            type="number"
+            name="lenght"
+            id="lenght"
+            aria-label="Longitud de la contraseña"
+          />
+        </div>
+
+        <!-- Checkbox para incluir números -->
+        <div class="option">
+          <label for="number">Números:</label>
+          <i
+            class="check ri-checkbox-blank-circle-line"
+            id="number"
+            role="button"
+            aria-pressed="false"
+            tabindex="0"
+          ></i>
+        </div>
+
+        <!-- Checkbox para incluir caracteres especiales -->
+        <div class="option">
+          <label for="character">Caracteres:</label>
+          <i
+            class="check ri-checkbox-blank-circle-line"
+            id="character"
+            role="button"
+            aria-pressed="false"
+            tabindex="0"
+          ></i>
+        </div>
+
+        <!-- Botón para generar la contraseña -->
+        <button id="submit" onclick="generatePassword()">
+          Generar Contraseña
+        </button>
+
+        <!-- Área donde se mostrará la contraseña generada -->
+        <p id="password" class="password" role="status" aria-live="polite"></p>
+
+        <!-- Nota para el usuario -->
+        <small
+          ><i class="ri-info-i"></i> Pulsa sobre la contraseña para
+          copiarla</small
+        >
+
+        <!-- Toast: Notificación emergente -->
+        <div id="toast" class="toast" role="alert">¡Contraseña copiada!</div>
+      </section>
+    </main>
+
+    <!-- Enlace al archivo JavaScript -->
+    <script src="main.js"></script>
+
+    <!-- Footer con enlaces a redes sociales -->
+    <footer>
+      <a href="https://www.instagram.com/dxbae_/">
+        <i class="ri-instagram-line"></i>
+      </a>
+      <a href="https://github.com/dxbae-dev">
+        <i class="ri-github-line"></i>
+      </a>
+      <a
+        href="https://www.linkedin.com/in/gerardo-daniel-ramirez-baena-4069a8322/"
+      >
+        <i class="ri-linkedin-line"></i>
+      </a>
+    </footer>
+  </body>
+</html>

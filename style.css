@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+:root {
+    --bg-color: rgb(199, 198, 198);
+    --text-color: rgb(36, 36, 36);
+    --primary-color: rgb(195, 182, 253);
+    --hero-img: url(imgs/hero.jpg);
+    --green: #1ee417;
+}
+
+/* Modo oscuro */
+body.dark {
+    --bg-color: rgb(36, 36, 36);
+    --text-color: rgb(192, 192, 192);
+    --primary-color: rgb(6, 9, 39);
+    --hero-img: url(imgs/hero-dark.jpg);
+    --green: #042703;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+    padding: 20px;
+    animation: fadeIn 1s ease-out;
+    transition: background-color 0.6s ease, color 0.6s ease;
+}
+
+.left {
+    background-image: var(--hero-img);
+    background-size: cover;
+    width: 350px;
+    height: 100%;
+    border-radius: 20px;
+    box-shadow: 0 0 30px var(--text-color);
+    animation: slideInLeft 1.5s ease-out;
+}
+
+.form {
+    padding: 80px;
+    display: flex;
+    height: 100%;
+    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    animation: fadeIn 1.5s ease-out;
+}
+
+#toggleTheme {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    padding: 10px;
+    border-radius: 50%;
+    font-size: 2rem;
+    animation: slideInTop 1.5s ease-out;
+    cursor: pointer;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 100;
+    animation: slideInTop 1.5s ease-out;
+}
+
+p {
+    font-weight: 100;
+    text-align: center;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: var(--primary-color);
+    width: 90%;
+    height: 70%;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px var(--text-color);
+    animation: fadeInUp 1.5s ease-out;
+}
+
+.option {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    align-items: center;
+    animation: fadeIn 2s ease-out;
+}
+
+label {
+    font-size: 1.4rem;
+    font-weight: 300;
+}
+
+input {
+    background-color: transparent;
+    border-radius: 10px;
+    border: 1px solid var(--text-color);
+    color: var(--text-color);
+    padding: 4px;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px var(--primary-color);
+}
+
+/* Quitar flechas de los inputs tipo number */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+.check {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.check:hover {
+    transform: scale(1.1);
+}
+
+button {
+    background-color: var(--text-color);
+    padding: 15px 30px;
+    border-radius: 10px;
+    color: var(--bg-color);
+    border: 1px solid var(--text-color);
+    font-size: 1rem;
+    font-weight: 400;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button:hover {
+    background-color: transparent;
+    color: var(--text-color);
+    transform: scale(1.1);
+}
+
+.password {
+    visibility: hidden;
+    padding: 15px 30px;
+    text-align: center;
+    font-weight: 400;
+    border-radius: 10px;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.password.active {
+    visibility: visible;
+    background-color: var(--green);
+    border: 1px solid var(--text-color);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+
+@keyframes slideInTop {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Toast (mensaje flotante) */
+.toast {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    text-align: center;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+    opacity: 0;
+    border-radius: 10px;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.toast.show {
+    visibility: visible;
+    opacity: 1;
+    z-index: 10000;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    font-size: 20px;
+}
+
+a {
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 50%;
+    color: var(--text-color);
+    background-color: transparent;
+    border: 1px solid var(--text-color);
+    transition: background-color 0.3s ease-in-out;
+}
+
+a:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+}
